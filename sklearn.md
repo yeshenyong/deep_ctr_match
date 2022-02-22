@@ -4,13 +4,26 @@
 
 `log_loss`
 
+−(ylog(p)+(1−y)log(1−p))
 
+y yy表示样本的真实标签(1或0)，p pp表示模型预测为正样本的概率。
+
+
+
+所以最差的情况就是，正好是一半正样本一半负样本，此时你乱猜出的logloss是0.693。
+
+所以只要loglss是在0.693以上，就说明模型是失败的。
 
 
 
 `roc_auc_score`
 
+```python
+print("test LogLoss", round(log_loss(test[target].values, pred_ans), 4))
+print("test AUC", round(roc_auc_score(test[target].values, pred_ans), 4))
+```
 
+计算 auc 指标
 
 
 
