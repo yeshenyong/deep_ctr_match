@@ -7,9 +7,9 @@
 
 ## Match
 
-| 算法        | 论文    |
-| --------    | -----  |
-| MIND            | [Multi-Interest Network with Dynamic Routing for Recommendation at Tmall](https://arxiv.org/abs/1904.08030v1) |
+| 算法        | 论文    | 论文翻译与解读 |
+| --------    | -----  | -----  |
+| MIND            | [Multi-Interest Network with Dynamic Routing for Recommendation at Tmall](https://arxiv.org/abs/1904.08030v1) | https://www.yuque.com/yeshenyong/setmh9/zbte8u |
 
 
 ## Rank
