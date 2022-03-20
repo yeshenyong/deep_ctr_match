@@ -491,6 +491,47 @@ When filling using a DataFrame, replacement happens along the same column names 
 
 
 
+Set the DataFrame index using existing columns.
+
+并且原地修改
+
+```python
+df.set_index("user_id", inplace=True)
+```
+
+
+
+`loc`
+
+```python
+df = pd.DataFrame([[1, 2], [4, 5], [7, 8]],
+...      index=['cobra', 'viper', 'sidewinder'],
+...      columns=['max_speed', 'shield'])
+
+df
+Out[15]: 
+            max_speed  shield
+cobra               1       2
+viper               4       5
+sidewinder          7       8
+```
+
+```python
+ df.loc['viper']
+Out[17]: 
+max_speed    4
+shield       5
+Name: viper, dtype: int64
+```
+
+```python
+df.loc[['cobra','viper']]
+Out[20]: 
+       max_speed  shield
+cobra          1       2
+viper          4       5
+```
+
 
 
 ### Merge 函数

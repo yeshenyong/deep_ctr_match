@@ -96,13 +96,37 @@ Applies an activation function to an output.
 
 
 
+#### Embedding
+
+```python
+keras.layers.embeddings.Embedding(input_dim, output_dim, embeddings_initializer='uniform', embeddings_regularizer=None, activity_regularizer=None, embeddings_constraint=None, mask_zero=False, input_length=None)
+```
+
+Embedding层只能作为模型的第一层
+
+参数
+
+input_dim：大或等于0的整数，字典长度，即输入数据最大下标+1
+output_dim：大于0的整数，代表全连接嵌入的维度
+embeddings_initializer: 嵌入矩阵的初始化方法，为预定义初始化方法名的字符串，或用于初始化权重的初始化器。参考initializers
+embeddings_regularizer: 嵌入矩阵的正则项，为Regularizer对象
+embeddings_constraint: 嵌入矩阵的约束项，为Constraints对象
+mask_zero：布尔值，确定是否将输入中的‘0’看作是应该被忽略的‘填充’（padding）值，该参数在使用递归层处理变长输入时有用。设置为True的话，模型中后续的层必须都支持masking，否则会抛出异常。如果该值为True，则下标0在字典中不可用，input_dim应设置为|vocabulary| + 2。
+input_length：当输入序列的长度固定时，该值为其长度。如果要在该层后接Flatten层，然后接Dense层，则必须指定该参数，否则Dense层的输出维度无法自动推断
+
+
+
 
 
 
 
 ### 默认
 
+继承keras.layer
+
 #### build
+
+
 
 #### call
 
