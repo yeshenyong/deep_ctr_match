@@ -148,9 +148,13 @@ def MIND(user_feature_columns, item_feature_columns, num_sampled=5, k_max=2, p=1
 
     model.__setattr__("user_input", inputs_list)
     model.__setattr__("user_embedding", user_embeddings)
-
     model.__setattr__("item_input", item_inputs_list)
     model.__setattr__("item_embedding",
                       get_item_embedding(pooling_item_embedding_weight, item_features[item_feature_name]))
+    # model.__dict__["user_input"] = inputs_list
+    # model.__dict__["user_embedding"] = user_embeddings
+    # model.__dict__["item_input"] = item_inputs_list
+    # model.__dict__["item_embedding"] = get_item_embedding(pooling_item_embedding_weight, item_features[item_feature_name])
+
 
     return model

@@ -96,7 +96,17 @@ ________________________________________________________________________________
 
 ### 实战演练
 
+**Capsule Layer 设计**
 
+**论文中的描述：**先给每个用户动态的计算出用户的k条兴趣（k_user），然后Capsule Layer层 直接输出用户的k条兴趣（k_user）；
+
+**在实践中：**先给每个用户固定输出k_max条兴趣，然后在Label-aware Attention层再做自适应选取k_user条兴趣向量。【PS：在实际serving一般都是固定的k_max条兴趣】
+
+
+
+**Label-aware Attention 设计**
+
+在训练阶段，要进行预测的 Label 只有一个Embedding，而用户有k个Embedding，没法直接求内积计算匹配度。这里MIND提出了Label-aware Attention，思路跟DIN是一致的，就是根据 Label 的 Embedding 对用户的k个Embedding分别求出权重(所谓label-aware)，然后对用户的k个Embedding求加权和，得到最终的一个用户 Embedding。
 
 #### 数据处理
 
