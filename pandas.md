@@ -332,7 +332,7 @@ df1 = df1.apply(plus,axis=1,args=(2,3,))
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/vI9nYe94fsFbZh04AsPta2sVVzYf8YFsV5OuPdUuQdWmloFl2PKYF5gv0xuNALS90iaeEE8XytSgW9zr47ZBBDg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
-​	表格中有一个 describe() 函数，统计函数千千万，describe() 函数最简便。它是个统计大礼包，可以快速让我们对数据有个全面的了解。下面我直接使用 df1.descirbe() 输出结果为：
+​	表格中有一个 **describe()** 函数，统计函数千千万，describe() 函数最简便。它是个统计大礼包，可以快速让我们对数据有个全面的了解。下面我直接使用 df1.descirbe() 输出结果为：
 
 ```python
 df1 = DataFrame({'name':['ZhangFei', 'GuanYu', 'a', 'b', 'c'], 'data1':range(5)})
@@ -531,6 +531,25 @@ Out[20]:
 cobra          1       2
 viper          4       5
 ```
+
+
+
+`isin`
+
+```python
+# Here we have three types for No DATA. Let's unite these values.
+print(customers['fashion_news_frequency'].unique())
+# array(['NONE', 'Regularly', nan, 'Monthly', 'None'], dtype=object)
+# 除了isin 的数据, 其他都是None
+customers.loc[~customers['fashion_news_frequency'].isin
+              (['Regularly', 'Monthly']), 'fashion_news_frequency'] = 'None'
+
+print(customers['fashion_news_frequency'].unique())
+# array(['None', 'Regularly', 'Monthly'], dtype=object)
+pie_data = customers[['customer_id', 'fashion_news_frequency']].groupby('fashion_news_frequency').count()
+```
+
+
 
 
 
